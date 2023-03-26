@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->unique();
-            $table->tinyText('content');
+            $table->string('content', 512);
             $table->foreignId('post_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('original_comment_id')->nullable()->constrained('comments')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('poster_id')->nullable()->constrained('users')->cascadeOnUpdate()->nullOnDelete();
             $table->timestamp('commented_at');
-            $table->timestamp('updated_at');
+            $table->timestamp('edited_at');
         });
     }
 
