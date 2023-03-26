@@ -16,9 +16,11 @@ class Comment extends Model
     ];
 
     const CREATED_AT = 'commented_at';
+    const UPDATED_AT = 'edited_at';
 
-    public static function boot(): void
+    public static function boot()
     {
+        parent::boot();
         static::creating(function ($model) {
             $model->uuid = uuid();
         });
