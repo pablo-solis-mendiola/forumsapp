@@ -19,7 +19,7 @@ return new class extends Migration
             $table->boolean('is_nsfw')->default(false);
             $table->foreignId('poster_id')->nullable()->constrained('users')->cascadeOnUpdate()->nullOnDelete();
             $table->timestamp('posted_at');
-            $table->timestamp('updated_at');
+            $table->timestamp('edited_at');
         });
     }
 
